@@ -53,7 +53,7 @@ public class RestaurantController {
 		return new ResponseEntity<Restaurant>(service.addRestaurant(restaurant), HttpStatus.OK);
 	}
 	
-	@PutMapping(path = "/{userId}",
+	@PutMapping(path = "/{RestaurantId}",
 			consumes = {
 				MediaType.APPLICATION_XML_VALUE, 
 				MediaType.APPLICATION_JSON_VALUE
@@ -62,13 +62,13 @@ public class RestaurantController {
 					MediaType.APPLICATION_XML_VALUE, 
 					MediaType.APPLICATION_JSON_VALUE
 					})
-	public ResponseEntity<Optional<Restaurant>> updateUser(@PathVariable int userId, @Valid @RequestBody Restaurant restaurant) {
-		return new ResponseEntity<Optional<Restaurant>>(service.updateRestaurant(userId, restaurant), HttpStatus.OK);
+	public ResponseEntity<Optional<Restaurant>> updateRestaurant(@PathVariable int RestaurantId, @Valid @RequestBody Restaurant restaurant) {
+		return new ResponseEntity<Optional<Restaurant>>(service.updateRestaurant(RestaurantId, restaurant), HttpStatus.OK);
 	}
 
-	@DeleteMapping(path = "/{userId}")
-	public ResponseEntity<Void> deleteUser(@PathVariable int userId) {
-		service.deleteRestaurantById(userId);
+	@DeleteMapping(path = "/{RestaurantId}")
+	public ResponseEntity<Void> deleteRestaurant(@PathVariable int RestaurantId) {
+		service.deleteRestaurantById(RestaurantId);
 		
 		return ResponseEntity.noContent().build();
 	}

@@ -15,7 +15,7 @@ public class Restaurant {
 	private GeoJsonPoint position;
 	private double x;
 	private double y;
-	
+
 	// Time is stored in minutes format; for example 5:30 will be
 	// stored as 5 * 60 + 30 -> 330 
 	private int startTime;
